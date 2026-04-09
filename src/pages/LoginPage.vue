@@ -1,12 +1,16 @@
 <script setup lang="ts">
     import LoginForm from '@/components/LoginForm.vue';
-    import { loginUser } from '@/services/AuthService';
+    import { loginUser, type PostData } from '@/services/AuthService';
     import { useRouter } from 'vue-router';
 
     const router = useRouter();
 
     async function handleLogin(username:string, password:string){
-        loginUser(username, password, router);
+        const sendData:PostData = {
+            username: username,
+            password: password,
+        }
+        loginUser(sendData, router);
     }
 
 </script>

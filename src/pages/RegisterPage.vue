@@ -1,12 +1,17 @@
 <script setup lang="ts">
     import RegisterForm from '@/components/RegisterForm.vue';
-    import { registerUser } from '@/services/AuthService';
+    import { registerUser, type PostData } from '@/services/AuthService';
     import { useRouter } from 'vue-router';
 
     const router = useRouter();
 
     async function handleRegister(username:string, password:string, confirmPassword: string){
-        registerUser(username, password, confirmPassword, router);
+        const dataSend:PostData = {
+            username: username,
+            password: password
+        }
+
+        await registerUser(dataSend, confirmPassword, router);
     }
     
 </script>

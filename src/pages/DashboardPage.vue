@@ -4,8 +4,10 @@ import { ref } from 'vue';
 import { useRouter, type Router } from 'vue-router';
 
 const router:Router = useRouter();
+let loggedInUsername:string = localStorage.getItem('username') ?? 'User';
 
-let countDown = ref(5);
+let countDown = ref(3);
+let username= ref(loggedInUsername.replace(/['"]+/g, ''));
 
 function countDownTimerToLogout(counter: number):void{
     countDown.value = counter;
@@ -13,6 +15,9 @@ function countDownTimerToLogout(counter: number):void{
     console.log(countDown.value);
     if (countDown.value === 0) {
         console.log('Count down completed.');
+        
+        localStorage.removeItem('username');
+
         router.replace('/');
         return;
     }
@@ -28,7 +33,7 @@ function countDownTimerToLogout(counter: number):void{
         <div class="bg-white p-12 rounded-2xl shadow-xl text-center border-2 border-green-950">
             <div class="mt-4 mb-8">
                 <h1 class="text-2xl font-bold text-gray-800">
-                    Welcome, User
+                    Welcome, {{username}}
                 </h1>
 
                 <div class="mt-4 mb-2">
