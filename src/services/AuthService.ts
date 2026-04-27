@@ -3,16 +3,12 @@ import Swal from "sweetalert2";
 
 import { globalMixin } from "@/components/SweetAlert_Mixin";
 import { API_URL_DEV } from "./config";
+import type { PostData } from "@/types/types";
+import { checkStrength } from "@/utils/Strength_Checker";
 
 // Endpoints from API
 const LOGIN_PATH: string = "api/auth/login/";
 const REGISTER_PATH: string = "api/auth/register/";
-
-// Interface to define request schema to the API
-export interface PostData {
-    username: string;
-    password: string;
-}
 
 /*
     Register function, sending request to the API

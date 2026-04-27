@@ -2,6 +2,7 @@
 
 import { ref } from 'vue';
 import { labelTailWindClass, inputTailWindClass } from '@/styles/GlobalStyles';
+import { checkStrength } from '@/utils/Strength_Checker';
 
 const emit = defineEmits<{
     (event:'submit-register', username: string, password: string, confirmPassword: string):void
@@ -15,21 +16,36 @@ function submitForm(){
     emit('submit-register', username.value, password.value, confirm_pass.value)
 }
 
+// Password meter logic
+const passwordMeterLabel = ref('');
+const passwordMeterColor = ref('');
+
+async function passwordMeter(password: string) {
+    let result = checkStrength(password);
+
+    passwordMeterLabel.value = result.label!;
+    passwordMeterColor.value = result.color!;
+}
+
 </script>
 
 <template>
     <div class="container">
         <form @submit.prevent="submitForm">
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <div class="mx-3 mb-6">
+                <div class="w-full px-3 mb-6 md:mb-0">
                     <label for="username" v-bind="labelTailWindClass">Username</label>
                     <input type="text" v-model="username" name="username" id="username" placeholder="Enter username" v-bind="inputTailWindClass" required="true">
                 </div>
-                <div class="w-full md:w-1/2 px-3">
+                <div class="w-full px-3">
                     <label for="password" v-bind="labelTailWindClass">Password</label>
-                    <input type="password" v-model="password" name="password" id="password" placeholder="Enter password" v-bind="inputTailWindClass" required="true">               
+                    <input type="password" v-on:input="passwordMeter(password)" v-model="password" name="password" id="password" placeholder="Enter password" v-bind="inputTailWindClass" required="true">               
                 </div>
-                <div class="w-full md:w-1/2 px-3">
+                <div class="my-4 mx-4 text-left font-semibold" v-bind:class="passwordMeterColor" id="password-div">
+                    <!-- Here is the password meter render -->
+                     {{ passwordMeterLabel }}
+                </div>
+                <div class="w-full px-3">
                     <label for="password" v-bind="labelTailWindClass">Confirm Password</label>
                     <input type="password" v-model="confirm_pass" name="confirm_pass" id="confirm_pass" placeholder="Confirm Password" v-bind="inputTailWindClass" required="true">
                 </div>

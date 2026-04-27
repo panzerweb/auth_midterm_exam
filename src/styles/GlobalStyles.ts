@@ -1,5 +1,5 @@
 export const labelTailWindClass = {
-    class: 'block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2',
+    class: 'block uppercase text-left tracking-wide text-gray-700 text-xs font-bold mb-2',
 };
 
 export const inputTailWindClass = {

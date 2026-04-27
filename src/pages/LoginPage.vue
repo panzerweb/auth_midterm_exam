@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import LoginForm from '@/components/LoginForm.vue';
-    import { loginUser, type PostData } from '@/services/AuthService';
+    import { loginUser } from '@/services/AuthService';
+    import type { PostData } from '@/types/types';
     import { useRouter } from 'vue-router';
 
     const router = useRouter();
@@ -29,6 +30,9 @@
 
             <LoginForm @submit-login="handleLogin"></LoginForm>
 
+            <RouterLink to="/register" active-class="text-yellow-500" class="text-gray-900">
+                <p class="mt-4">Don't have an account <span class="font-semibold text-green-900">Register Now</span></p>
+            </RouterLink>
         </div>
     </div>
 </template>
