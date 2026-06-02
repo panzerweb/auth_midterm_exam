@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import About_section from '@/components/dashboard/about_section.vue';
+import About_section from '@/components/dashboard/About_Section.vue';
 import { ref } from 'vue';
 import { useRouter, type Router } from 'vue-router';
 
