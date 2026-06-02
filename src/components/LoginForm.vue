@@ -6,6 +6,9 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/16/solid";
 const username_value = ref("");
 const password_value = ref("");
 const showPassword = ref(false);
+const props = defineProps(["isLoading"]);
+
+console.log(props.isLoading);
 
 const emit = defineEmits<{
   (
@@ -55,9 +58,12 @@ function submitForm() {
 
       <button
         type="submit"
-        class="bg-green-800 p-4 rounded-lg text-gray-100 text-lg font-semibold w-full"
+        class="p-4 rounded-lg text-gray-100 text-lg font-semibold w-full"
+        :class="props.isLoading ? 'bg-gray-600' : 'bg-green-800'"
+        :disabled="props.isLoading"
       >
-        Login
+        <span v-if="props.isLoading">Loading...</span>
+        <span v-else>Login</span>
       </button>
     </form>
     <div class="flex items-end justify-end px-3 gap-3 my-4">

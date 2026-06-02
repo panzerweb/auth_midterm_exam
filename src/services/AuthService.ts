@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import { globalMixin } from "@/components/SweetAlert_Mixin";
 import { API_URL_DEV } from "./config";
 import type { PostData } from "@/types/types";
-import { checkStrength } from "@/utils/Strength_Checker";
 
 // Endpoints from API
 const LOGIN_PATH: string = "/api/auth/login/";
@@ -101,7 +100,7 @@ export async function loginUser(
             return false;
         }
 
-        console.log(res);
+        console.log(res.message);
         globalMixin("success", res.message || "Login successful!");
 
         localStorage.setItem('username', JSON.stringify(res.username));

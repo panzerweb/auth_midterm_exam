@@ -17,6 +17,7 @@ const username = ref("");
 const password = ref("");
 const confirm_pass = ref("");
 const showPassword = ref(false);
+const props = defineProps(['isLoading']);
 
 function submitForm() {
   emit("submit-register", username.value, password.value, confirm_pass.value);
@@ -101,9 +102,12 @@ async function passwordMeter(password: string) {
 
       <button
         type="submit"
-        class="bg-green-800 p-4 rounded-lg text-gray-100 text-lg font-semibold w-full"
+        class="p-4 rounded-lg text-gray-100 text-lg font-semibold w-full"
+        :class="props.isLoading ? 'bg-gray-600' : 'bg-green-800'"
+        :disabled="props.isLoading"
       >
-        Register
+        <span v-if="props.isLoading">Loading...</span>
+        <span v-else>Register</span>
       </button>
     </form>
   </div>
