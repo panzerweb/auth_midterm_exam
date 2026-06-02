@@ -7,8 +7,8 @@ import type { PostData } from "@/types/types";
 import { checkStrength } from "@/utils/Strength_Checker";
 
 // Endpoints from API
-const LOGIN_PATH: string = "api/auth/login/";
-const REGISTER_PATH: string = "api/auth/register/";
+const LOGIN_PATH: string = "/api/auth/login/";
+const REGISTER_PATH: string = "/api/auth/register/";
 
 /*
     Register function, sending request to the API
