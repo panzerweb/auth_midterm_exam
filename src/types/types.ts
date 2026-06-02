@@ -11,3 +11,22 @@ export interface PasswordStrength {
     label?: PasswordStrengthLabel | null;
     color?: string | '';
 }
+
+// Cyber Threats Interface and Enums
+export enum CyberThreatType {
+  MALWARE = "Malware",
+  PHISHING = "Phishing",
+  SOCIAL_ENGINEERING = "Social Engineering",
+  PASSWORD_ATTACK = "Password Attack",
+  NETWORK_ATTACK = "Network Attack",
+  WEB_ATTACK = "Web Attack",
+  INSIDER_THREAT = "Insider Threat",
+  ADVANCED_PERSISTENT_THREAT = "Advanced Persistent Threat",
+}
+
+export interface CyberThreats {
+    id: number | undefined,
+    name: string | null,
+    description: string | null
+    type: CyberThreatType | null,
+}

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 
 import About_section from '@/components/dashboard/About_Section.vue';
+import Cyber_Threats_Section from '@/components/dashboard/Cyber_Threats_Section.vue';
+import Why_Security_Section from '@/components/dashboard/Why_Security_Section.vue';
 import { ref } from 'vue';
 import { useRouter, type Router } from 'vue-router';
 
@@ -21,6 +23,13 @@ let username= ref(loggedInUsername.replace(/['"]+/g, ''));
         
         <!-- About Section -->
         <About_section></About_section>
+
+        <!-- Why Security is Important -->
+         <Why_Security_Section></Why_Security_Section>
+
+        <!-- Cyber Threats Section -->
+        <Cyber_Threats_Section></Cyber_Threats_Section>
+        
     </div>
 </template>
 

@@ -78,6 +78,5 @@ const developerData : Developers[] = [
         </div>
       </div>
     </div>
-
   </section>
 </template>
