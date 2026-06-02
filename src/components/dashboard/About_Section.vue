@@ -19,6 +19,12 @@ const developerData : Developers[] = [
         codename: 'Etriii',
         role: 'Backend Developer',
         focus: 'Authentication Logic and Security Implementation',
+    },
+    {
+      name: 'Charlene Calamba',
+      codename: 'Shixxcvb',
+      role: 'Technical Writer',
+      focus: 'Documentation and Technical Writing'
     }
 ]
 
