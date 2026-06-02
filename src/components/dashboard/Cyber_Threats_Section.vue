@@ -88,7 +88,7 @@ function getThreatBadgeClass(type: string | null) {
       <div
         v-for="threat in filteredThreats"
         :key="threat.id"
-        class="w-[calc((100%-3rem)/4)] bg-white shadow-md border border-gray-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer"
+        class="bg-white shadow-md border border-gray-200 rounded-xl p-6 hover:shadow-lg transition cursor-pointer w-full sm:w-[320px] lg:w-75"
       >
         <h2 class="text-xl font-semibold mb-2 text-gray-800">
           {{ threat.name }}
@@ -115,7 +115,7 @@ function getThreatBadgeClass(type: string | null) {
         @click.self="closeModal"
       >
         <div
-          class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl p-16 relative max-h-[80vh] overflow-y-auto"
+          class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl p-16 mx-4 relative max-h-[80vh] overflow-y-auto"
         >
           <!-- Close button -->
           <button
